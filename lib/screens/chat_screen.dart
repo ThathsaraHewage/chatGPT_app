@@ -12,7 +12,7 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  final bool isTyping = true;
+  bool isTyping = true;
   late TextEditingController textEditingController;
 
   @override
@@ -23,48 +23,53 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   void dispose() {
-    textEditingController = TextEditingController();
-    super.initState();
+    textEditingController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          elevation: 2,
-          leading: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Image.asset(AssetsController.chatGPTimage),
-          ),
-          title: const Text("ChatGPT"),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.more_vert_rounded,
-                color: Colors.white,
-              ),
-            )
-          ],
+      appBar: AppBar(
+        elevation: 2,
+        leading: Padding(
+          padding: const EdgeInsets.all(0.5),
+          child: Image.asset(AssetsController.chatGPTimage),
         ),
-        body: SafeArea(
-            child: Column(
+        title: const Text("ChatGPT"),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.more_vert_rounded,
+              color: Colors.white,
+            ),
+          )
+        ],
+      ),
+      body: SafeArea(
+        child: Column(
           children: [
-            ListView.builder(
-                itemCount: 6,
-                itemBuilder: (context, index) {
-                  return const Text("hello");
-                }),
+            Flexible(
+              child: ListView.builder(
+                  itemCount: 6,
+                  itemBuilder: (context, index) {
+                    return const Text("hello");
+                  }),
+            ),
             if (isTyping) ...[
               const SpinKitThreeBounce(
                 color: Colors.white,
-                size: 17,
+                size: 18,
               ),
-              const SizedBox(
-                height: 15,
-              ),
-              Material(
-                color: cardColor,
+            ],
+            const SizedBox(
+              height: 15,
+            ),
+            Material(
+              color: cardColor,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
                     Expanded(
@@ -87,9 +92,11 @@ class _ChatScreenState extends State<ChatScreen> {
                         ))
                   ],
                 ),
-              )
-            ]
+              ),
+            ),
           ],
-        )));
+        ),
+      ),
+    );
   }
 }
