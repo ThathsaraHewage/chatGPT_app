@@ -1,11 +1,12 @@
-
 import 'package:chatgpt/constants/constants.dart';
 import 'package:chatgpt/services/assets_controller.dart';
+import 'package:chatgpt/services/services.dart';
+import 'package:chatgpt/widgets/text_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-  /*
+/*
     Main Chat Screen 
    */
 class ChatScreen extends StatefulWidget {
@@ -43,7 +44,9 @@ class _ChatScreenState extends State<ChatScreen> {
         title: const Text("ChatGPT"),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () async {
+              await Services.showBottomModalSheet(context: context);
+            },
             icon: const Icon(
               Icons.more_vert_rounded,
               color: Colors.white,
