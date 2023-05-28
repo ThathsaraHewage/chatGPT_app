@@ -5,6 +5,9 @@ import 'package:chatgpt/widgets/text_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+  /*
+    This is the widget of chat boxes
+   */
 class ChatWidget extends StatelessWidget {
   const ChatWidget(
       {Key? key,

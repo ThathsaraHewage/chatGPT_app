@@ -15,6 +15,9 @@ class TextWidget extends StatelessWidget {
   final Color? color;
   final FontWeight? fontWeight;
 
+  /*
+    This widget is used to format text on chat
+   */
   @override
   Widget build(BuildContext context) {
     return Text(

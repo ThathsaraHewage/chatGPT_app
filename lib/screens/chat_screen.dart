@@ -1,9 +1,13 @@
+
 import 'package:chatgpt/constants/constants.dart';
 import 'package:chatgpt/services/assets_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+  /*
+    Main Chat Screen 
+   */
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
 
